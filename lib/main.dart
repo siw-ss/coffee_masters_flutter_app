@@ -1,3 +1,4 @@
+import 'package:coffee_masters/pages/offerspage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class _GreetState extends State<Greet> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Hello $name"),
+        Text("Hello $name !"),
         TextField(
           onChanged: (newValue) {
             setState(() {
@@ -28,7 +29,7 @@ class _GreetState extends State<Greet> {
             border: OutlineInputBorder(),
             labelText: "Your Name:",
           ),
-        )
+        ),
       ],
     );
   }
@@ -66,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Image.asset("images/logo.png"),
       ),
-      body: const Greet(), // This trailing comma makes auto-formatting nicer for build methods.
+      body: const OffersPage(), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
