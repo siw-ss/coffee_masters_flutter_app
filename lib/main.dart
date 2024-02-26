@@ -12,9 +12,25 @@ class Greet extends StatefulWidget {
 }
 
 class _GreetState extends State<Greet> {
+  var name = "";
   @override
   Widget build(BuildContext context) {
-    return const Text("hellooo");
+    return Column(
+      children: [
+        Text("Hello $name"),
+        TextField(
+          onChanged: (newValue) {
+            setState(() {
+              name = newValue;
+            });
+          },
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Your Name:",
+          ),
+        )
+      ],
+    );
   }
 }
 
