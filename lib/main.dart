@@ -67,7 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Image.asset("images/logo.png"),
       ),
-      body: const OffersPage(), // This trailing comma makes auto-formatting nicer for build methods.
+      //-------body start-----------------
+      body: const OffersPage(),
+      //--------body end-----------------/ This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

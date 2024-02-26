@@ -5,13 +5,17 @@ class OffersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: double.infinity,
-      child: Column(children: [
+      child: ListView(
+        children: const [
         Offer(
             title: "Early Coffee",
             description: "10% off. Offer valid from 6am to 9am."),
-        Offer(title: "Welcome Gift", description: "25% off on your first order")
+        Offer(title: "Welcome Gift", description: "25% off on your first order"),
+        Offer(title: "Welcome Gift", description: "25% off on your first order"),
+        Offer(title: "Welcome Gift", description: "25% off on your first order"),
+        Offer(title: "Welcome Gift", description: "25% off on your first order"),
       ]),
     );
   }
