@@ -1,3 +1,4 @@
+import 'package:coffee_masters/datamanager/datamanager.dart';
 import 'package:coffee_masters/pages/menupage.dart';
 import 'package:coffee_masters/pages/offerspage.dart';
 import 'package:coffee_masters/pages/orderpage.dart';
@@ -67,9 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     late Widget currentPage;
+    DataManager dataManager = DataManager();
+    
     switch (_currentIndex) {
       case 0:
-        currentPage = const MenuPage();
+        currentPage = MenuPage(dataManager: dataManager);
         break;
       case 1:
         currentPage = const OffersPage();
