@@ -1,4 +1,6 @@
+import 'package:coffee_masters/pages/menupage.dart';
 import 'package:coffee_masters/pages/offerspage.dart';
+import 'package:coffee_masters/pages/orderpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -60,16 +62,58 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    late Widget currentPage;
+    switch (_currentIndex) {
+      case 0:
+        currentPage = const MenuPage();
+        break;
+      case 1:
+        currentPage = const OffersPage();
+        break;
+      case 2:
+        currentPage = const OrdersPage();
+        break;
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Image.asset("images/logo.png"),
       ),
+
       //-------body start-----------------
-      body: const OffersPage(),
-      //--------body end-----------------/ This trailing comma makes auto-formatting nicer for build methods.
+      body: currentPage,
+      //--------body end-----------------
+
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 24,
+        selectedItemColor: Colors.yellow.shade400,
+        unselectedItemColor: Colors.brown.shade50,
+        items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.coffee),
+                label: 'Menu',
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.local_offer),
+                label: 'Offers',
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart_outlined), 
+                label: 'Order'
+            ),
+        ],
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
