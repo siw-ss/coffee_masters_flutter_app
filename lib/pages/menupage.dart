@@ -7,7 +7,13 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var p = Product(id: 1, name: "Dummy product", price: 1.25, image: "");
-    return MenuItem(product: p, onAdd: ()=>{},);
+    return ListView(
+      children: [
+        MenuItem(product: p, onAdd: ()=>{},),
+        MenuItem(product: p, onAdd: ()=>{},),
+        MenuItem(product: p, onAdd: ()=>{},),
+      ],
+    );
   }
 }
 
