@@ -36,7 +36,7 @@ class MenuPage extends StatelessWidget {
                         // EACH MENU ITEM, Mobile Viewport
                         ListView.builder(
                           shrinkWrap: true,
-                          physics: ClampingScrollPhysics(),
+                          physics: const ClampingScrollPhysics(),
                           itemCount: category.products.length,
                           itemBuilder: (context, index) {
                             return MenuItem(
