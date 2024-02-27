@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentPage = const OffersPage();
         break;
       case 2:
-        currentPage = const OrdersPage();
+        currentPage = OrderPage(dataManager: dataManager);
         break;
     }
     return Scaffold(
