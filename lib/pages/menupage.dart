@@ -8,6 +8,8 @@ class MenuPage extends StatelessWidget {
   const MenuPage({super.key, required this.dataManager});
   @override
   Widget build(BuildContext context) {
+  var screenSize = MediaQuery.of(context).size;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: FutureBuilder<List<Category>>(
@@ -30,9 +32,11 @@ class MenuPage extends StatelessWidget {
                           style: TextStyle(color: Colors.brown.shade400),
                         ),
                       ),
+                      if (screenSize.width < 500)
+                        // EACH MENU ITEM, Mobile Viewport
                         ListView.builder(
                           shrinkWrap: true,
-                          physics: const ClampingScrollPhysics(),
+                          physics: ClampingScrollPhysics(),
                           itemCount: category.products.length,
                           itemBuilder: (context, index) {
                             return MenuItem(
@@ -41,7 +45,23 @@ class MenuPage extends StatelessWidget {
                             );
                           },
                         )
-                      
+                      else
+                        // EACH MENU ITEM, Large Viewport
+                        Center(
+                          child: Wrap(
+                            alignment: WrapAlignment.spaceAround,
+                            children: [
+                              for (var product in category.products)
+                                SizedBox(
+                                  width: 350,
+                                  child: MenuItem(
+                                    product: product,
+                                    onAdd: (p) => dataManager.cartAdd(p),
+                                  ),
+                                )
+                            ],
+                          ),
+                        )
                     ],
                   );
                 });
