@@ -33,7 +33,7 @@ class MenuItem extends StatelessWidget {
         elevation: 4,
         child: Column(
           children: [
-            Image.asset("images/black_coffee.png"),
+            Image.network(product.imageUrl),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
