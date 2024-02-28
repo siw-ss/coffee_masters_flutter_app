@@ -2,18 +2,23 @@ import 'package:coffee_masters/datamanager/datamanager.dart';
 import 'package:coffee_masters/models/datamodel.dart';
 import 'package:flutter/material.dart';
 
-class MenuPage extends StatelessWidget {
-  
+class MenuPage extends StatefulWidget {
   final DataManager dataManager;
   const MenuPage({super.key, required this.dataManager});
+
+  @override
+  State<MenuPage> createState() => _MenuPageState();
+}
+
+class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
-  var screenSize = MediaQuery.of(context).size;
+    var screenSize = MediaQuery.of(context).size;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: FutureBuilder<List<Category>>(
-        future: dataManager.getMenu(),
+        future: widget.dataManager.getMenu(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
@@ -36,12 +41,17 @@ class MenuPage extends StatelessWidget {
                         // EACH MENU ITEM, Mobile Viewport
                         ListView.builder(
                           shrinkWrap: true,
-                          physics: const ClampingScrollPhysics(),
+                          physics: ClampingScrollPhysics(),
                           itemCount: category.products.length,
                           itemBuilder: (context, index) {
+                            var product = category.products[index];
                             return MenuItem(
-                              product: category.products[index],
-                              onAdd: (p) => dataManager.cartAdd(p),
+                              product: product,
+                              onAdd: (p) {
+                                setState(() {
+                                  widget.dataManager.cartAdd(p);
+                                });
+                              },
                             );
                           },
                         )
@@ -56,7 +66,11 @@ class MenuPage extends StatelessWidget {
                                   width: 350,
                                   child: MenuItem(
                                     product: product,
-                                    onAdd: (p) => dataManager.cartAdd(p),
+                                    onAdd: (p) {
+                                      setState(() {
+                                        widget.dataManager.cartAdd(p);
+                                      });
+                                    },
                                   ),
                                 )
                             ],

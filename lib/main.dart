@@ -64,11 +64,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  DataManager dataManager = DataManager();
   var _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     late Widget currentPage;
-    DataManager dataManager = DataManager();
     
     switch (_currentIndex) {
       case 0:

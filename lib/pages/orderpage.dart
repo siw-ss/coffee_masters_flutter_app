@@ -2,10 +2,10 @@ import 'package:coffee_masters/datamanager/datamanager.dart';
 import 'package:coffee_masters/models/datamodel.dart';
 import 'package:flutter/material.dart';
 
-class OrderPage extends StatefulWidget {
 
+class OrderPage extends StatefulWidget {
   final DataManager dataManager;
-  const OrderPage({super.key, required this.dataManager});
+  const OrderPage({Key? key, required this.dataManager}) : super(key: key);
 
   @override
   State<OrderPage> createState() => _OrderPageState();
@@ -62,6 +62,7 @@ class _OrderPageState extends State<OrderPage> {
     }
   }
 }
+
 class OrderItem extends StatelessWidget {
   final ItemInCart item;
   final Function onRemove;
@@ -91,8 +92,7 @@ class OrderItem extends StatelessWidget {
                 )),
             Expanded(
                 flex: 2,
-                child: Text("\$" +
-                    (item.product.price * item.quantity).toStringAsFixed(2))),
+                child: Text("\$" + (item.product.price * item.quantity).toStringAsFixed(2))),
             Expanded(
                 flex: 1,
                 child: IconButton(
