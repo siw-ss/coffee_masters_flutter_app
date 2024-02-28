@@ -51,7 +51,13 @@ class _OrderPageState extends State<OrderPage> {
                     style: ElevatedButton.styleFrom(
                         primary: Colors.green.shade900),
                     onPressed: () {
-                      //TODO:
+                      showDialog(
+                        context: context,
+                        builder: (context) => const OrderAlert());
+                      setState(() {
+                          // we update the cart within setState so the current widget will get re-rendered
+                          widget.dataManager.cartClear();
+                      });
                     },
                     child: const Text("Send Order")),
               ),
@@ -104,6 +110,23 @@ class OrderItem extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class OrderAlert extends StatelessWidget {
+  const OrderAlert({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text("Your Order"),
+      content: const Text("Your order is being prepared. Thanks!"),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context, 'OK'),
+            child: const Text('OK'))
+      ],
     );
   }
 }
