@@ -47,9 +47,7 @@ class _OrderPageState extends State<OrderPage> {
               padding: const EdgeInsets.only(top: 28.0),
               child: SizedBox(
                 width: 200,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.green.shade900),
+                child: FilledButton(
                     onPressed: () {
                       showDialog(
                         context: context,
