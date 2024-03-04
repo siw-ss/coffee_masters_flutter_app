@@ -1,4 +1,5 @@
 import 'package:coffee_masters/datamanager/datamanager.dart';
+import 'package:coffee_masters/helper/init_dependencies.dart';
 import 'package:coffee_masters/pages/menupage.dart';
 import 'package:coffee_masters/pages/offerspage.dart';
 import 'package:coffee_masters/pages/orderpage.dart';
@@ -7,8 +8,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'helper/init_controllers.dart' as di;
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await di.init();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await di.init();
   runApp(const MyApp());
 }
 
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: InitDep(),
       title: 'Coffee Masters',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
@@ -67,13 +69,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   DataManager dataManager = DataManager();
   var _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     late Widget currentPage;
-    
+
     switch (_currentIndex) {
       case 0:
         currentPage = MenuPage(dataManager: dataManager);
@@ -101,18 +102,16 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Colors.yellow.shade400,
         unselectedItemColor: Colors.brown.shade50,
         items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(Icons.coffee),
-                label: 'Menu',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.local_offer),
-                label: 'Offers',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined), 
-                label: 'Order'
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.coffee),
+            label: 'Menu',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_offer),
+            label: 'Offers',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart_outlined), label: 'Order'),
         ],
         currentIndex: _currentIndex,
         onTap: (index) {

@@ -1,4 +1,3 @@
-import 'package:coffee_masters/controllers/getx_controller.dart';
 import 'package:coffee_masters/pages/testgetx.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,7 +7,7 @@ class OffersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+
     return SizedBox(
       width: double.infinity,
       child: ListView(
