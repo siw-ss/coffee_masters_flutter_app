@@ -9,7 +9,7 @@ class TestGetX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TapController controller = Get.find();
-    ListController listController = Get.put(ListController());
+    ListController listController = Get.find();
 
     return Scaffold(
       appBar: AppBar(

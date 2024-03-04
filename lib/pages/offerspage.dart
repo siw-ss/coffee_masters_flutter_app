@@ -9,13 +9,10 @@ class OffersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    TapController controller = Get.put(TapController());
-
     return SizedBox(
       width: double.infinity,
       child: ListView(
         children: [
-          Text(controller.x.toString()),
           GestureDetector(
               onTap: (){
                 Get.to(()=> const TestGetX());
