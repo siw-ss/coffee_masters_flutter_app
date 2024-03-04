@@ -20,67 +20,69 @@ class TestGetX extends StatelessWidget {
       body: SizedBox(
         width: double.maxFinite,
         height: double.maxFinite,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GetBuilder<TapController>(builder: (_){
-              return Container(
-                margin: const EdgeInsets.all(10),
-                width: double.maxFinite,
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text(controller.x.toString(), 
-                  style:const TextStyle(
-                    fontSize: 20,
-                    color: Colors.brown,
-                  ),),
-                ),
-              );
-              },
-            ),
-            
-            GestureDetector(
-              onTap: (){
-                controller.increaseX();
-              },
-              child: Container(
-                margin: const EdgeInsets.all(50),
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Center(
-                  child: Text("x ++", style: TextStyle(
-                    fontSize: 20,
-                  ),),
-                ),
-              )
-            ),
-            GestureDetector(
-              onTap: (){
-                controller.decreaseX();
-              },
-              child: Container(
-                margin: const EdgeInsets.all(50),
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Center(
-                  child: Text("x --", style: TextStyle(
-                    fontSize: 20,
-                  ),),
-                ),
-              )
-            ),
-          ]),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GetBuilder<TapController>(builder: (_){
+                return Container(
+                  margin: const EdgeInsets.all(10),
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                    child: Text(controller.x.toString(), 
+                    style:const TextStyle(
+                      fontSize: 20,
+                      color: Colors.brown,
+                    ),),
+                  ),
+                );
+                },
+              ),
+              GestureDetector(
+                onTap: (){
+                  controller.increaseX();
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.black12,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Center(
+                    child: Text("x ++", style: TextStyle(
+                      fontSize: 20,
+                    ),),
+                  ),
+                )
+              ),
+              GestureDetector(
+                onTap: (){
+                  controller.decreaseX();
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.black12,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Center(
+                    child: Text("x --", style: TextStyle(
+                      fontSize: 20,
+                    ),),
+                  ),
+                )
+              ),
+            ]),
+        ),
       ),
     );
   }
