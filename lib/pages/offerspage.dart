@@ -1,5 +1,5 @@
 import 'package:coffee_masters/controllers/getx_controller.dart';
-import 'package:coffee_masters/pages/testgestx.dart';
+import 'package:coffee_masters/pages/testgetx.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
