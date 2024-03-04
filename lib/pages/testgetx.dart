@@ -117,7 +117,7 @@ class TestGetX extends StatelessWidget {
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
-                        color: Colors.brown,
+                        color: Colors.brown.shade300,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: const Center(
@@ -137,7 +137,7 @@ class TestGetX extends StatelessWidget {
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
-                        color: Colors.brown,
+                        color: Colors.brown.shade300,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: const Center(
@@ -148,6 +148,51 @@ class TestGetX extends StatelessWidget {
                       ),
                     )
                   ),
+                ]),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: (){
+                      controller.totalXY();
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(20),
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.brown.shade600,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Center(
+                        child: Text("x+y", style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),),
+                      ),
+                    )
+                  ),
+                  Obx(() =>
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Text(controller.z.value.toString(), 
+                        style:const TextStyle(
+                          fontSize: 20,
+                          color: Colors.brown,
+                        ),),
+                      ),
+                    ),
+                  ),
+                  
                 ]),
             ),
           ],
