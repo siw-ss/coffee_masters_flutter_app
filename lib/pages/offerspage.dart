@@ -1,4 +1,6 @@
+import 'package:coffee_masters/pages/testgestx.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OffersPage extends StatelessWidget {
   const OffersPage({Key? key}) : super(key: key);
@@ -8,14 +10,33 @@ class OffersPage extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: ListView(
-        children: const [
-        Offer(
+        children: [
+          GestureDetector(
+              onTap: (){
+                Get.to(()=> const TestGetX());
+              },
+              child: Container(
+                margin: const EdgeInsets.all(50),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.black12,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Center(
+                  child: Text("getx", style: TextStyle(
+                    fontSize: 20,
+                  ),),
+                ),
+              )
+            ),
+        const Offer(
             title: "Early Coffee",
             description: "10% off. Offer valid from 6am to 9am."),
-        Offer(title: "Welcome Gift", description: "25% off on your first order"),
-        Offer(title: "Welcome Gift", description: "25% off on your first order"),
-        Offer(title: "Welcome Gift", description: "25% off on your first order"),
-        Offer(title: "Welcome Gift", description: "25% off on your first order"),
+        const Offer(title: "Welcome Gift", description: "25% off on your first order"),
+        const Offer(title: "Welcome Gift", description: "25% off on your first order"),
+        const Offer(title: "Welcome Gift", description: "25% off on your first order"),
+        const Offer(title: "Welcome Gift", description: "25% off on your first order"),
       ]),
     );
   }

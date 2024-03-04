@@ -3,6 +3,7 @@ import 'package:coffee_masters/pages/menupage.dart';
 import 'package:coffee_masters/pages/offerspage.dart';
 import 'package:coffee_masters/pages/orderpage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Coffee Masters',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
