@@ -1,4 +1,5 @@
 import 'package:coffee_masters/controllers/getx_controller.dart';
+import 'package:coffee_masters/controllers/list_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +9,7 @@ class TestGetX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TapController controller = Get.find();
+    ListController listController = Get.put(ListController());
 
     return Scaffold(
       appBar: AppBar(
@@ -158,6 +160,7 @@ class TestGetX extends StatelessWidget {
                   GestureDetector(
                     onTap: (){
                       controller.totalXY();
+                      listController.setValues(controller.z.value);
                     },
                     child: Container(
                       margin: const EdgeInsets.all(20),

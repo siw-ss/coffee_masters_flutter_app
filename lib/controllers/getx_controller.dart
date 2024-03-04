@@ -13,26 +13,21 @@ class TapController extends GetxController{
   void increaseX(){
     _x++;
     update();
-    print(_x);
   }
   void decreaseX(){
     _x--;
     update();
-    print(_x);
   }
   //Obs don't need update()
   void increaseY(){
     _y.value++;
-    print(_y);
   }
   void decreaseY(){
     _y.value--;
-    print(_y);
   }
 
   void totalXY(){
     _z.value = x+_y.value;
-    print(_z);
   }
 
 }
