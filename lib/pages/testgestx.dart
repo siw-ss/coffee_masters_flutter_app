@@ -7,7 +7,7 @@ class TestGetX extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // TapController controller = Get.put(TapController());
+    TapController controller = Get.put(TapController());
 
     return Scaffold(
       appBar: AppBar(
@@ -15,7 +15,7 @@ class TestGetX extends StatelessWidget {
           onPressed: (){
             Get.back();
           },
-          icon: Icon(Icons.arrow_back_ios, color: Colors.brown,)),
+          icon:const Icon(Icons.arrow_back_ios, color: Colors.brown,)),
       ),
       body: SizedBox(
         width: double.maxFinite,
@@ -23,40 +23,59 @@ class TestGetX extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GestureDetector(
-              onTap: (){
-                
-              },
-              child: Container(
+            GetBuilder<TapController>(builder: (_){
+              return Container(
                 margin: const EdgeInsets.all(10),
                 width: double.maxFinite,
                 height: 100,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Center(
-                  child: Text("tap", style: TextStyle(
+                child: Center(
+                  child: Text(controller.x.toString(), 
+                  style:const TextStyle(
                     fontSize: 20,
-                    color: Colors.white,
+                    color: Colors.brown,
+                  ),),
+                ),
+              );
+              },
+            ),
+            
+            GestureDetector(
+              onTap: (){
+                controller.increaseX();
+              },
+              child: Container(
+                margin: const EdgeInsets.all(50),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.black12,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Center(
+                  child: Text("x ++", style: TextStyle(
+                    fontSize: 20,
                   ),),
                 ),
               )
             ),
             GestureDetector(
               onTap: (){
-                
+                controller.decreaseX();
               },
               child: Container(
-                margin: const EdgeInsets.all(10),
-                width: double.maxFinite,
+                margin: const EdgeInsets.all(50),
+                width: 100,
                 height: 100,
                 decoration: BoxDecoration(
+                  color: Colors.black12,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Center(
-                  child: Text("tap", style: TextStyle(
+                  child: Text("x --", style: TextStyle(
                     fontSize: 20,
-                    color: Colors.white,
                   ),),
                 ),
               )
